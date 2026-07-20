@@ -9,9 +9,9 @@ class HostedOllamaBackend(LLMBackend):
     """Talks to the class-hosted Ollama instance (native /api/generate endpoint)."""
 
     def __init__(self) -> None:
-        self.base_url = os.environ["CLASS_OLLAMA_BASE_URL"].rstrip("/")
+        self.base_url = os.environ.get("CLASS_OLLAMA_BASE_URL", "https://ollama.com").rstrip("/")
         self.api_key = os.environ.get("CLASS_OLLAMA_API_KEY", "")
-        self.model = os.environ["CLASS_OLLAMA_MODEL"]
+        self.model = os.environ.get("CLASS_OLLAMA_MODEL", "gpt-oss:120b")
 
     def generate(self, prompt: str) -> str:
         headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
