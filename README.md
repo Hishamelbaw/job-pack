@@ -7,6 +7,11 @@ infographic (SVG) via an LLM.
 Built for CS 3660 Sprint 1. See [ARCHITECTURE.md](ARCHITECTURE.md) for the
 original design plan and [DEPLOY.md](DEPLOY.md) for deployment instructions.
 
+## Live Demo
+
+- **Frontend**: https://job-pack.netlify.app
+- **Backend API**: https://job-pack-api.onrender.com
+
 ## Stack
 
 - **Backend**: FastAPI (pure JSON API — `app/`)
