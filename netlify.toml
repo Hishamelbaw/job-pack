@@ -1,11 +1,14 @@
 # Netlify config for the Job Pack static frontend.
 #
-# This file lives at the repo root, so no "Base directory" override is
-# needed when connecting this repo to Netlify. `publish` below is
-# resolved relative to the repo root.
+# base scopes Netlify's build to frontend/ only — otherwise Netlify tries
+# to auto-detect and install the backend's requirements.txt too, which
+# fails without a Rust toolchain (pydantic-core has no prebuilt wheel for
+# some environments). publish is relative to base, so "." means frontend/
+# itself.
 #
 # No build command: frontend/ is already plain static HTML/CSS/JS with
 # no build step. Before going live, edit frontend/config.js so
 # window.API_BASE_URL points at the deployed Render backend.
 [build]
-  publish = "frontend"
+  base = "frontend"
+  publish = "."
