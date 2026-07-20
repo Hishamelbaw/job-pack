@@ -17,19 +17,17 @@ Deploy the backend first — you need its URL before the frontend config makes s
 
 1. Push this repo to GitHub/GitLab.
 2. In Render: **New +** → **Blueprint**, point it at the repo.
-3. If the repo has other projects in it, set **Root Directory** to `Sprint 1 Job Pack`
-   (the folder containing `render.yaml`).
-4. Render reads `render.yaml` and creates the `job-pack-api` web service. Fill in the
-   prompted environment variables (see below) before the first deploy.
+3. Render reads `render.yaml` (at the repo root — no Root Directory override needed)
+   and creates the `job-pack-api` web service. Fill in the prompted environment
+   variables (see below) before the first deploy.
 
 ### Option B — Manual web service
 
 1. Render: **New +** → **Web Service**, connect the repo.
-2. **Root Directory**: `Sprint 1 Job Pack` (if applicable).
-3. **Runtime**: Python 3.
-4. **Build Command**: `pip install -r requirements.txt`
-5. **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-6. Add the environment variables below under the service's **Environment** tab.
+2. **Runtime**: Python 3.
+3. **Build Command**: `pip install -r requirements.txt`
+4. **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+5. Add the environment variables below under the service's **Environment** tab.
 
 ### Environment variables
 
@@ -63,9 +61,9 @@ window.API_BASE_URL = "https://job-pack-api.onrender.com"; // your Render URL fr
 ### Option A — Git-connected (`netlify.toml`)
 
 1. Netlify: **Add new site** → **Import an existing project**, connect the repo.
-2. If the repo has other projects in it, set **Base directory** to `Sprint 1 Job Pack`.
-3. Netlify reads `netlify.toml`, which sets `publish = "frontend"`. No build command needed.
-4. Deploy.
+2. Netlify reads `netlify.toml` (at the repo root — no Base directory override needed),
+   which sets `publish = "frontend"`. No build command needed.
+3. Deploy.
 
 ### Option B — Manual drag-and-drop
 
