@@ -1,8 +1,7 @@
 # Render Blueprint for the Job Pack API.
 #
-# When connecting this repo to Render, set the service's "Root Directory"
-# to the folder this file lives in (e.g. "Sprint 1 Job Pack") if the repo
-# contains other projects alongside this one.
+# This file lives at the repo root, so no "Root Directory" override is
+# needed when connecting this repo to Render.
 #
 # Env vars marked `sync: false` are secrets/deployment-specific values —
 # Render will prompt for them in the dashboard rather than reading a value
